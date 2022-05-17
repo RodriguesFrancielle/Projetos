@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+      <label for="idPeso">Peso</label><br>
+      <input type="number" name="nmPeso" id="idPeso" step="0.01">
+
+      <br><br>
+
+      <label for="idAltura">Altura</label><br>
+      <input type="number" name="nmAltura" id="idAltura" step="0.01">
+
+      <br><br>
+      <!--- nova tag output-->
+      <output id="idOut">IMC:</output>
+      <p id="idPar"></p>
+
+      <br><br>
+
+    <input type="button" value="Calcular" onclick="calcular()">
+
+  </form>
+  <script>
+    function calcular(){
+      var peso = Number(document.getElementById("idPeso").value)
+      var altura = Number(document.getElementById("idAltura").value)
+      var imc = (peso / (altura * altura)).toFixed(2)
+
+      var mensagem = "Nem deveria estar de pé"
+      if ((imc <= 16.9)){
+        mensagem = "Muito abaixo do peso"
+        }else
+      if ((imc >16.9) && (imc <= 18.4)){
+        mensagem = "Abaixo do peso"
+      }else
+      if ((imc >18.4) && (imc <= 24.9)){
+        mensagem = "Peso normal"
+      }else
+      if ((imc >24.9) && (imc <= 29.9)){
+        mensagem = "Acima do peso"
+      }else
+      if ((imc >24.9) && (imc <= 34.9)){
+        mensagem = "Obesidade Grau I"
+      }else
+      if ((imc >34.9) && (imc <= 40)){
+        mensagem = "Obesidade Grau II"
+      }else
+      if ((imc >40)){
+        mensagem = "Obesidade Grau III"
+      }
+
+
+
+/*
+      var mensagem = "Nem deveria estar de pé"
+      if ((imc <= 16.9)){
+        mensagem = "Muito abaixo do peso"
+      }
+      if ((imc >16.9) && (imc <= 18.4)){
+        mensagem = "Abaixo do peso"
+      }
+      if ((imc >18.4) && (imc <= 24.9)){
+        mensagem = "Peso normal"
+      }
+      if ((imc >24.9) && (imc <= 29.9)){
+        mensagem = "Acima do peso"
+      }
+      if ((imc >24.9) && (imc <= 34.9)){
+        mensagem = "Obesidade Grau I"
+      }
+      if ((imc >34.9) && (imc <= 40)){
+        mensagem = "Obesidade Grau II"
+      }
+      if ((imc >40)){
+        mensagem = "Obesidade Grau III"
+      }
+*/
+
+      document.getElementById("idOut").value = " IMC: " + imc + " - " + mensagem
+      /* preciso concatenar para aparecer o texto na tela document.getElementById("idOut").value = concatenar é isso : "IMC: " + imc*/
+      document.getElementById("idPar").innerText = "Imc: " + imc + " - " + mensagem
+     /* troca texto dinamicamente*/   
+    }
+
+  </script>
+
+</body>
+</html>

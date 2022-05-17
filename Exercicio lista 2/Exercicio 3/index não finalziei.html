@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <fieldset>
+    <legend>Exercício 3. Crie um algoritmo que permita cadastrar e imprimir a temperatura dos últimos 3 dias. Calcule a média e descubra se a temperatura de hoje está acima ou abaixo da média.</legend>
+  <form action="">
+
+  <label for="idDia1">Dia 1</label><br>
+  <input type="number" id="idDia1" name="nmTemperatura">
+<br><br>
+<label for="idDia2">Dia 2</label><br>
+  <input type="number" id="idDia2" name="nmTemperatura">
+<br><br>
+<label for="idDia3">Dia 3</label><br>
+  <input type="number" id="idDia3" name="nmTemperatura">
+<br><br>
+<label for="idDia4">Hoje</label><br>
+  <input type="number" id="idDia4" name="nmTemperatura">
+<br><br>
+
+
+<input type="button" value="cadastrar "onclick="calcular()"><br><br>
+
+<output id="idOut1">Temperatura do dia 1: </output><br><br>
+<output id="idOut2">Temperatura do dia 2: </output><br><br>
+<output id="idOut3">Temperatura do dia 3: </output><br><br>
+<output id="idOut4">Temperatura de Hoje: </output><br><br>
+
+<output id="idOut5">Resultado da Média: </output><br><br>
+
+
+
+</fieldset>
+</form>
+</body>
+<script>
+
+
+
+  function calcular() {
+    var dia1 = Number(document.getElementById("idDia1").value)
+    var dia2 = Number(document.getElementById("idDia2").value)
+    var dia3 = Number(document.getElementById("idDia3").value)
+    var media = Number(document.getElementById("idDia4").value)
+  var resultado
+  document.getElementById("idOut1").value =  "Temperatura do dia 1: " + dia1
+  document.getElementById("idOut2").value =  "Temperatura do dia 2: " + dia2 
+  document.getElementById("idOut3").value =  "Temperatura do dia 3: " + dia3
+  document.getElementById("idOut4").value =  "Temperatura de hoje: " + media
+var calculo = (dia1 + dia2 + dia3) / 3
+
+if(media > calculo){
+  mensagem = "Acima da média"
+  document.getElementById("idOut5").value = "Resultado da média de hoje: "+ mensagem}
+if (media < calculo) {
+  mensagem = "Abaixo da média"
+  document.getElementById("idOut5").value = "Resultado da média de hoje: "+ mensagem }
+
+} 
+ 
+ 
+
+ 
+  
+
+  
+
+
+
+</script>
+
+</html>

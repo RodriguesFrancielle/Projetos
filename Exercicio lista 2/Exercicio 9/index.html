@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <fieldset>
+    <legend>Alistamento</legend>
+  <form action="">
+  <label for="idData">Ano de Nascimento:</label><br>
+  <input type="text" id="idData" name="nmData" >
+  <br><br>
+    <button type="button" onclick="verificar()">Verificar</button><br><br>
+    <output id="idOut"></output><br><br>
+    <output id="idOut2"></output><br><br>
+  </fieldset>
+</form>
+<script>
+
+function verificar() {
+   var data = Number(document.getElementById("idData").value)
+  
+  var ano = (data + 18) - 2022
+  var ano2 = (((data + 18) - 2022)*-1)
+  
+  if (ano2){
+    document.getElementById("idOut2").value = ""
+  }
+
+  if(ano >0){
+    document.getElementById("idOut").value = "Quanto tempo falta: " + ano
+  } else
+  if(ano){
+  document.getElementById("idOut").value = "" 
+   }
+
+  if(ano2 >0) {
+    document.getElementById("idOut2").value = "Quanto tempo passou: " + ano2
+  }
+
+  
+}
+
+
+
+</script>
+
+
+</body>
+</html>

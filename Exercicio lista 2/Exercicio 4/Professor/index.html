@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    <label for="idNomeBanco">Nome Banco:</label><br>
+    <input type="text" id="idNomeBanco" name="nmNomeBanco">
+    <br><br>
+    <label for="idNomeCorrentista">Nome Correntista:</label><br>
+    <input type="text" id="idNomeCorrentista" name="nmNomeCorrentista">
+    <br><br>
+    <label for="idNumeroConta">Numero Conta Corrente:</label><br>
+    <input type="text" id="idNumeroConta" name="nmNumeroConta">
+    <br><br>
+    <br><br>
+    <label for="idLimiteCredito">Limite Credito:</label><br>
+    <input type="number" id="idLimiteCredito" name="nmLimiteCredito" step="0.01" readonly disabled>
+    <br><br>
+    <label for="idSaldoAtual">Saldo Atual:</label><br>
+    <input type="number" id="idSaldoAtual" name="nmSaldoAtual" step="0.01" readonly disabled>
+    <br><br>
+
+    <label for="idValorOperacao">Valor:</label><br>
+    <input type="number" id="idValorOperacao" name="nmValorOperacao" step="0.01">
+    <br><br>
+
+    <input type="radio" name="nmOperacao" id="idSacar" checked>
+    <label for="idSacar">Sacar</label>
+    <input type="radio" name="nmOperacao" id="idDepositar" checked>
+    <label for="idDepositar">Depositar</label>
+    <br><br>
+
+    <output id="idOut"> Status:</output>
+    <br><br>
+    <input type="button" value="Depositar/Sacar" onclick="efetuarOperacao()">
+    <input type="button" value="Conferir Saldo" onclick="conferirSaldo()">
+    
+    <br><br>  
+  </form>
+
+  <script>
+    //pré-inicialização da tela a partir dos dados da conta
+    document.getElementById("idSaldoAtual").value = 0
+    document.getElementById("idLimiteCredito").value = 200.00
+    var saldo = 0
+    var limiteCredito = 200
+
+    function efetuarOperacao(){
+      var opSacar = Number(document.getElementById("idSacar").checked)
+      var opDepositar = Number(document.getElementById("idDepositar").checked)
+      var valorOperacao = Number(document.getElementById("idValorOperacao").value)
+
+      if(opSacar){
+        if(limiteCredito >= (-1 * saldo) + valorOperacao){
+          saldo = saldo - valorOperacao
+          document.getElementById("idOut").value = "Status: Operacao Realizada com Sucesso"
+        }else{
+          document.getElementById("idOut").value = "Status: Saldo Insuficiente"
+        }
+      }else{
+        saldo = saldo + valorOperacao
+        document.getElementById("idOut").value = "Status: Operação realizada com suceso"
+      }
+      document.getElementById("idSaldoAtual").value = saldo
+      console.log("saldo: " + saldo);
+
+    }
+
+    function conferirSaldo() {
+      var banco = document.getElementById("idNomeBanco").value
+      var nomeCorrentista = document.getElementById("idNomeCorrentista").value
+      var numeroConta = document.getElementById("idNumeroConta").value
+      document.getElementById("idOut").value = "Banco: " + banco + 
+                          "Correntista" + nomeCorrentista + 
+                          "Numero Conta: "+ numeroConta + 
+                          " Saldo: " + saldo
+       
+    }
+
+
+  </script>
+</body>
+</html>

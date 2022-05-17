@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ <p><h3>Descubra seu peso ideal</h3></p> 
+
+ <label for="idAltura">Altura</label> <br>
+ <input type="number" id="idAltura" name="nmAltura" step="0.01" >
+
+ <br>
+ <!---<p>Selecione seu genero: </p>
+  <input type="radio" id="idFem" name="nmGenero" checked> 
+    <label for="idFem">Feminino</label> <br>
+
+  <input type="radio" id="idMasc" name="nmGenero" > 
+    <label for="idMasc">Masculino</label>-->
+
+ 
+ <br><br> 
+ <button type="button" onclick="calcular()">Calcular</button>
+
+ <br><br>  
+<p><h3>Resultado:</h3> </p>
+ <label for="idResultado1">Ideal Feminino</label> <br>
+ <input type="text" id="idResultado1" name="nmResultado2" readonly>
+ <br><br>
+ <label for="idResultado2">Ideal Masculino</label> <br>
+ <input type="text" id="idResultado2" name="nmResultado2" readonly>
+
+
+ <script>
+
+   function calcular(){
+     var altura = Number(document.getElementById("idAltura").value)
+     
+      
+    var fem = (62.1*altura) - 44.7
+    document.getElementById("idResultado1").value = fem
+
+
+    var masc =  (72.7*altura) - 58
+    document.getElementById("idResultado2").value = masc
+   }
+
+ </script>
+
+
+</body>
+</html>

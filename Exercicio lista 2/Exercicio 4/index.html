@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <fieldset>
+    <Legend>Cliente Banco</Legend>
+    <form action="">
+      <label for="idNome">Nome do Correntista:</label><br>
+      <input type="text" id="idNome" name="nmNome">
+      <br><br>
+      <label for="idBanco">Nome do Banco:</label><br>
+      <input type="text" id="idBanco" name="nmBanco">
+      <br><br>
+      <label for="idConta">Número da conta:</label><br>
+      <input type="number" id="idConta" name="nmConta">
+      <br><br>
+        <label for="idLimite">Limite de crédito:</label><br>
+        <input type="number" id="idLimite" name="nmLimite" >
+        <br><br>
+        <label for="idSaldo">Saldo atual:</label><br>
+        <input type="number" id="idSaldo" name="nmSaldo" >
+        <br><br>
+
+        <fieldset>
+          <legend> Operações de crédito e débito </legend>
+          <label for="idCredito">Crédito:</label><br>
+        <input type="number" id="idCredito" name="nmCredito">
+        <br><br>
+        <label for="idDebito">Débito:</label><br>
+        <input type="number" id="idDebito" name="nmDebito">
+        <br><br>
+        <input type="button" value="Cadastrar" onclick="Cadastrar()">
+
+        </fieldset>
+        <br><br>
+        <input type="button" value="Imprimir saldo atual" onclick="imprimir()">
+        <br><br>
+      
+        <output id="idResultado1"></output><br>
+        <output id="idResultado2"></output>
+
+    </form>
+
+  </fieldset>
+</body>
+<script>
+
+ 
+  function imprimir() {
+    var limite = Number (document.getElementById("idLimite").value)
+    var saldo = Number (document.getElementById("idSaldo").value)
+    var credito = Number (document.getElementById("idCredito").value).toFixed(2)
+    var debito = Number (document.getElementById("idDebito").value).toFixed(2)
+    var pagoD = saldo - debito
+    var pagoC = limite - credito
+
+    if(pagoD){  
+      document.getElementById("idResultado1").value = "Seu saldo atual é: " + pagoD
+    }
+    if(pagoC){  
+      document.getElementById("idResultado2").value = "Seu limite de crédito é: " + pagoC
+    }
+    
+  }
+
+
+</script>
+
+</html>

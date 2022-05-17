@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <label for="idPreço">Preço de Compra:</label><br>
+  <input type="number" id="idPreço" name="nmPreço" step="0.01">
+  <br><br>
+  <label for="idCusto">Custo fixo:</label><br>
+  <input type="number" id="idCusto" name="nmCusto" step="0.01">
+  <br><br>
+  <label for="idLucro">Lucro Líquido:</label><br>
+  <input type="number" id="idLucro" name="nmCusto" step="0.01">
+  <br><br>
+
+  <input type="button" value="Calcular" onclick="calcular()">
+
+  <br><br>
+
+  <label for="idResultado">Resultado:</label><br>
+  <input type="text" id="idResultado" name="nmLucro" step="0.01" readonly>
+  <br><br>
+
+</body>
+  <script>
+    function calcular(){
+      var preço = Number(document.getElementById("idPreço").value)
+      var custo = Number(document.getElementById("idCusto").value)
+      var lucro = Number(document.getElementById("idLucro").value)
+      var compra = Number (lucro/100) * (preço + custo)
+     
+    resultado = compra + preço + custo
+     document.getElementById("idResultado").value = resultado
+
+    }
+
+
+
+  </script>
+
+
+</html>

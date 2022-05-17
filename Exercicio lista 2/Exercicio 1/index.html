@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <fieldset>
+    <legend>Exercício 1. Crie um algoritmo que leia um número, se ele for maior que 20, divida o número por 2.</legend>
+  <form action="">
+
+  <label for="idNumber">Número</label><br>
+  <input type="number" id="idNumber" name="nmNumber">
+<br><br>
+<output id="idOut">Resultado final: </output><br><br>
+
+<input type="button" value="calcular "onclick="calcular()">
+</fieldset>
+</form>
+</body>
+
+<script>
+function calcular() {
+  var number = Number(document.getElementById("idNumber").value)
+  var resultado
+
+  if(number >20 ){
+    resultado= number / 2
+  } 
+  if (number <20) {
+    resultado = number
+  }
+
+  document.getElementById("idOut").value = " Resultado final: " + resultado
+  
+}
+
+
+
+</script>
+</html>

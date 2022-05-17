@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ <p>IMC</p> 
+
+ <label for="idAltura">Altura</label> <br>
+ <input type="number" id="idAltura" name="nmAltura" step="0.01" >
+
+ <br><br>
+
+ <label for="idPeso">Peso</label> <br>
+ <input type="number" id="idPeso" name="nmPeso" step="0.01">
+
+ <br><br> 
+ <button type="button" onclick="soma()">Soma</button>
+
+ <br><br>
+
+ <label for="idResultado">Resultado</label> <br>
+ <input type="text" id="idResultado" name="nmResultado">
+
+ <script>
+
+   function soma(){
+     var altura = Number(document.getElementById("idAltura").value)
+     var peso = Number(document.getElementById("idPeso").value)
+     resultado = peso / (altura * altura)
+     document.getElementById("idResultado").value = resultado
+
+     if (resultado <16 & resultado <16.9){
+        console.log("Muito abaixo do peso");}
+
+     if (resultado >=17 & resultado <18.4){
+        console.log("Abaixo do peso");
+      }
+     if (resultado >=18.5 & resultado <24.9){
+        console.log("Peso Normal");
+     }
+     if (resultado >=25 & resultado <29.9){
+        console.log("Acima do peso");
+     }
+     if (resultado >=30 & resultado <34.9){
+        console.log("Obesidade grau I");
+     }
+     if (resultado >=35 & resultado <40){
+        console.log("Obesidade grau II");
+     }
+     if (resultado >40 & resultado >40){
+        console.log("Obesidade grau III");
+     }
+    
+
+   }
+
+ </script>
+
+
+</body>
+</html>

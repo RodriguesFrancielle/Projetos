@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <fieldset>
+    <legend>Verificar se está dentro do intervalo entre 30 e 90.</legend>
+
+    <label for="idNumber">Número</label><br>
+    <input type="number" id="idNumber" name="nmNumber">
+    <br><br>
+
+    <button type="button" onclick="imprimir()">Imprimir</button>
+    <br><br>
+    <output id="idOut"></output>
+
+  </fieldset>
+
+  <script>
+    function imprimir() {
+      let number= Number(document.getElementById("idNumber").value)
+      var out = document.getElementById("idOut")
+
+      
+    if (number >= 30 & number <=90 ){
+        out.value = " Está dentro do intervalo" 
+    } else
+
+    {(number <=29)
+      out.value = " Está fora do intervalo"
+    } 
+    if (number >= 91 ){ 
+      out.value = " Está fora do intevalo"
+    }
+
+    }
+
+  </script>
+
+
+</body>
+</html>

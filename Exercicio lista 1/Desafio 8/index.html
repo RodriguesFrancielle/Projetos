@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<h2> Área das formas geométricas básicas:</h2> <br>
+
+  <p><h3> A.O raio de um Círculo: </h3></p>
+  <label for="idDiametro">Diametro:</label><br>
+  <input type="number" id="idDiametro" name="nmDiametro" step="0.01">
+  <br><br>
+
+  <input type="button" value="Calcular" onclick="calcularcirculo()">
+  <br><br>
+
+  <label for="idResultadoA">Resultado do Raio:</label><br>
+  <input type="number" id="idResultadoA" name="nmResultadoA" step="0.01" readonly>
+  <br><br>
+
+ <!----->
+  <p><h3> B.Área de um retângulo: </h3></p>
+  <label for="idComprimento">Comprimento:</label><br>
+  <input type="number" id="idComprimento" name="nmComprimento" step="0.01">
+  <br><br>
+  <label for="idLargura">Largura:</label><br>
+  <input type="number" id="idLargura" name="nmLargura" step="0.01">
+  <br><br>
+
+  <input type="button" value="Calcular" onclick="calcularretangulo()">
+  <br><br>
+
+  <label for="idResultadoB">Resultado da área:</label><br>
+  <input type="number" id="idResultadoB" name="nmResultadoB" step="0.01" readonly>
+  <br><br>
+  <!----->
+  <p><h3> C.Área de um Triangulo retângulo: </h3></p>
+  <label for="idBase">Base:</label><br>
+  <input type="number" id="idBase" name="nmBase" step="0.01">
+  <br><br>
+  <label for="idAltura">Altura:</label><br>
+  <input type="number" id="idAltura" name="nmAltura" step="0.01">
+  <br><br>
+
+  <input type="button" value="Calcular" onclick="calculartrianguloretangulo()">
+  <br><br>
+
+  <label for="idResultadoC">Resultado da área:</label><br>
+  <input type="number" id="idResultadoC" name="nmResultadoC" step="0.01" readonly>
+  <br><br>
+
+  <!----->
+  <p><h3> D.Triangulo Equilátero: </h3></p>
+  <label for="idLado">Tamanho do Lado:</label><br>
+  <input type="number" id="idLado" name="nmLado" step="0.01">
+  <br><br>
+  <input type="button" value="Calcular" onclick="calculartrianguloequilatero()">
+  <br><br>
+
+  <label for="idResultadoD">Resultado da área:</label><br>
+  <input type="number" id="idResultadoD" name="nmResultadoD" step="0.01" readonly>
+  <br><br>
+
+</body>
+<script>
+  function calcularcirculo(){
+    var diametro = Number(document.getElementById("idDiametro").value)
+ 
+    resultado = diametro / 2
+     document.getElementById("idResultadoA").value = resultado }
+
+  /*---------------*/
+
+     function calcularretangulo(){
+    var comprimento = Number(document.getElementById("idComprimento").value)
+    var largura = Number(document.getElementById("idLargura").value)
+ 
+    resultado = comprimento * largura
+     document.getElementById("idResultadoB").value = resultado }
+
+     /*-------------*/
+
+     
+     function calculartrianguloretangulo(){
+    var base = Number(document.getElementById("idBase").value)
+    var altura = Number(document.getElementById("idAltura").value)
+ 
+    resultado = (base * altura) / 2
+     document.getElementById("idResultadoC").value = resultado }
+
+     /*-------------*/
+     function calculartrianguloequilatero(){
+    var lado = Number(document.getElementById("idLado").value)
+ 
+    resultado = lado * 3
+     document.getElementById("idResultadoD").value = resultado }
+
+     /*-------------*/
+
+     
+
+</script>
+</html>

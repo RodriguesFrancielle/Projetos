@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    <label for="idCapital">Qual é a Capital do Brasil?</label><br>
+    <input type="text" id="idCapital" name="nmCapital">
+<br><br>
+    <button type="Button" onclick="conferir()">Conferir</button><br><br>
+
+    <output id="idOut"></output>
+
+  </form>
+  <script>
+
+    function conferir(){
+      var capital = document.getElementById("idCapital").value 
+      
+
+      if(capital == "Brasilia")
+      { document.getElementById("idOut").value = "correto"
+
+     }else 
+     
+     if (capital == "brasilia"){
+        document.getElementById("idOut").value = "correto"
+      } else{
+        document.getElementById("idOut").value = "incorreto"
+
+      }
+    
+    }
+
+
+  </script>
+
+
+</body>
+</html>

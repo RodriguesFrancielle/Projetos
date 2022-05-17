@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Média</title>
+</head>
+<body>
+  <p><h3>Descubra a sua média:</h3></p>
+  <label for="idNumber1">Nota 1:</label><br>
+  <input type="number" id="idNumber1" name="nmNumber1" min="0" max="10">
+<br><br>
+  <label for="idNumber2">Nota 2:</label><br>
+  <input type="number" id="idNumber2" name="nmNumber1" min="0" max="10">
+  <br><br>
+  <label for="idNumber3">Nota 3:</label><br>
+  <input type="number" id="idNumber3" name="nmNumber3" min="0" max="10">
+  <br><br>
+  <label for="idNumber4">Nota 4:</label><br>
+  <input type="number" id="idNumber4" name="nmNumber4" min="0" max="10">
+  <br><br>
+  <input type="button" value="Calcular" onclick="calcular()"> <br>
+  <br>
+  <label for="idResultado">Resultado</label><br>
+  <input type="text" id="idResultado" name="nmResultado" readonly>
+
+</body>
+<script>
+  function calcular(){
+    var number1 = Number(document.getElementById("idNumber1").value)
+    var number2 = Number(document.getElementById("idNumber2").value)
+    var number3 = Number(document.getElementById("idNumber3").value)
+    var number4 = Number(document.getElementById("idNumber4").value)
+     
+    resultado = (number1 + number2 + number3 + number4) / 4
+     document.getElementById("idResultado").value = resultado
+
+  }
+
+</script>
+</html>

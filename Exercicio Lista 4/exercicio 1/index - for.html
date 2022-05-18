@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <output id="idOut"></output>
+
+  <script>
+      var textoContador = ""
+      var out = document.getElementById("idOut")
+
+      for (let contador = 5; contador <= 12; contador++) {
+        textoContador = textoContador + contador + " "
+        out.value = "Inicio " + textoContador + "Fim..."
+      }
+
+
+
+  </script>
+</body>
+</html>

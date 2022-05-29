@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <fieldset>
+    <legend>Faça um algoritmo que pergunte ao usuário um número inteiro e positivo qualquer e mostre uma contagem até esse valor:</legend><br>
+<form action="">
+  <input type="number" id="idNum" name="nmNum" placeholder="Digite um número:">
+  <br><br>
+
+  <button type="button" onclick="cliqueAqui()">Clique aqui</button>
+  <br><br>
+  <output id="idOut"></output>
+  <br><br>
+</form>
+</fieldset>
+ <script>
+        
+        var contador = 0
+        var textoContador = ""
+         var out = document.getElementById("idOut")
+    
+      function cliqueAqui() {
+        let num = Number(document.getElementById("idNum").value)
+      while (num >= contador) {
+        textoContador = textoContador + contador + " "
+
+        contador++
+      }
+
+      out.value = "Inicio " + textoContador + "Fim..."
+    }
+
+
+ </script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+      <body>
+          <label for="idTemperatura">Temperatura: </label><br>
+          <input type="number" id="idTemperatura" name="idGraus">
+          <br><br>
+          
+          <input type="radio" name="nmtemp" id="idKelvin" checked>
+          <label for="idKelvin">Kelvin</label>
+          <input type="radio" name="nmtemp" id="idFah">
+          <label for="idFah">Fahrenheit</label>
+          <input type="radio" name="nmtemp" id="idCelsius">
+          <label for="idCelsius">Celsius</label>
+          <br><br>
+
+          <button type="button" onclick="verificar()">Verificar</button>
+          <br><br>
+          <output id="idOut"></output>
+
+          <script>
+              function verificar(Graus) {
+                let temperatura = parseFloat(document.getElementById("idTemperatura").value)
+                let out= document.getElementById("idOut")
+                let cont = " "
+
+               
+
+               
+                if (document.getElementById('idFah').checked) {
+                  cont = (((9 * temperatura) + 160) / 5)
+                 
+                } 
+                if (document.getElementById('idKelvin').checked){
+                  cont = temperatura + 273
+                 
+                }
+                 else if (document.getElementById('idCelsius').checked) {
+                  cont = (temperatura - 32) * (5/9)
+                  
+                }
+                out.value = + cont
+              
+        
+
+                
+              }
+            
+          </script>
+          
+      </body>
+</html>

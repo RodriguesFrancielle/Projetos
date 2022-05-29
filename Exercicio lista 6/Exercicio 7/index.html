@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  </head>
+      <body>
+        <label for="idNome">Nome</label><br>
+        <input type="text" id="idNome" name="nmNome">
+        <br><br>
+        
+        <button type="button" onclick="cadastrar()">Cadastrar</button>
+        <button type="button" onclick="relatorio()">Relatorio</button>
+        <br><br>
+        <output id="idOut"></output><br><br>
+        <script>
+          var numero = []
+
+          function cadastrar() {
+            let nome = document.getElementById("idNome").value
+              numero.push(nome)
+              console.log(numero)
+            }
+
+          function relatorio() {
+            let nomesInvertidos = []
+            for (let i = 0; i < numero.length; i++) {
+              nomesInvertidos.unshift(numero[i]);
+              console.log(nomesInvertidos)
+              document.getElementById("idOut").value = " Relatorio com os nomes invertidos: " + nomesInvertidos
+            }
+
+            
+          }
+            
+
+            
+          
+        
+          
+
+
+
+        </script>
+
+      </body>
+</html>

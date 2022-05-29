@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <output id="idOut"></output>
+
+  <script>
+      var contador = 30
+      var textoContador = ""
+      
+
+      while (contador > 0) {
+        if ((contador % 4) == 0) {
+          textoContador = textoContador + "[" + contador + "] "
+        } else {
+          textoContador = textoContador + contador + " "
+        }
+        
+
+        contador = contador - 1
+      
+      }
+
+     document.getElementById("idOut").value = "Inicio: " + textoContador + "Fim"
+// descobrir o calculo dos numeros p/ saber quais são divisiveis por 4
+
+
+  </script>
+</body>
+</html>

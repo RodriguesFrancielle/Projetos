@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <button type="button" onclick="contarWhile()">Contar While</button>
+        <br><br>
+        <output id="idOut"></output>
+        <br><br>
+    </form>
+
+    <Script>
+
+        function contarWhile() {
+          let cont = 6
+          let soma = 0  
+
+            while (cont <= 100) {
+              soma = soma + cont
+              cont = cont + 2
+            }   
+          document.getElementById("idOut").value = "PA: " + soma 
+        }
+
+
+    </Script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  </head>
+      <body>
+        <label for="idNum">Números:</label><br>
+        <input type="Number" id="idNum" name="nmNum">
+        <br><br>
+        
+        <button type="button" onclick="cadastrar()">Cadastrar</button>
+       
+        <br><br>
+        <output id="idOut"></output><br><br>
+        <output id="idOutMult"></output><br><br>
+        <script>
+          var numero = []
+
+          function cadastrar() {
+          
+            let num = document.getElementById("idNum").value
+                  numero.push(num)
+                  console.log(numero)
+                  document.getElementById("idOut").value = " " + numero
+            
+                let numerosPares = ""
+                let cont = 0
+
+                for (let index = 0 ; index < numero.length; index++) {
+                if((num % 2)==0){
+                  numerosPares = numerosPares + num + " "
+                  document.getElementById("idOutMult").value = " Relatorio dos Números Pares: " + num
+                   
+                  }
+                }
+                  
+                }
+        </script>
+
+      </body>
+</html>

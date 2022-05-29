@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    <button type="button" onclick="contar()">contar</button>
+    <br><br>
+    <output id="idOut1"></output>
+    <br><br>
+    <output id="idOut2"></output>
+    <br><br>
+
+  </form>
+
+  <script>
+      function contar() {
+        let cont = 0
+        let textoCont = ""
+        while (cont <= 100) {
+          
+        
+
+          if ((cont % 3 && cont % 5) == 0) {
+             textoCont = textoCont + "[" + cont + "] "
+          } else {
+            textoCont = textoCont + cont + " "
+          }
+          cont = cont + 1
+          
+        }
+        document.getElementById("idOut").value = " Inicio " + textoCont + " FIM..."
+      }
+    
+        
+       
+    
+  </script>
+</body>
+</html>

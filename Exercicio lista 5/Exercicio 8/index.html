@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+      <body>
+          <label for="idCelsius">Graus Celsius: </label><br>
+          <input type="number" id="idCelsius" name="idGraus">
+          <br><br>
+
+          <button type="button" onclick="verificar()">Verificar</button>
+          <br><br>
+          <output id="idOut"></output>
+
+          <script>
+              function verificar(Graus) {
+                let celsius = Number(document.getElementById("idCelsius").value)
+
+                let fahrenheit = (((9 * celsius) + 160) / 5)
+              
+
+                if (fahrenheit) {
+
+                  document.getElementById("idOut").value = "Graus Fahrenheit: " + fahrenheit
+                  console.log(fahrnheit);
+                
+                  
+                }
+                
+
+
+                
+              }
+            
+          </script>
+          
+      </body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<style>
+    body{
+      background-color: lightyellow;
+    }
+
+    #idLegend{
+      background-color: cornflowerblue;
+      font-size: larger;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    #idField{
+      background-color: beige;
+      border: double;
+    }
+
+    #idNota {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+   input[type=text]{
+     background-color:honeydew;
+     border-radius: 10px;
+     border-color: black;
+     padding: 1px;
+     margin-left: 0cm;
+     margin-right: 1cm;
+     margin-top: 0.5cm;
+     margin-bottom: 0.5cm;
+
+   }
+  </style>
+</head>
+      <body>
+        <fieldset id="idField">
+          <legend id="idLegend">Nota dos Alunos</legend>
+          <form action="">
+            <label for="idNota">Nota:</label><br>
+            <input type="Number" id="idNota" name="nmNota">
+            <br><br>
+        
+            <button type="button" onclick="cadastrar()">Cadastrar</button>
+            
+            <button type="button" onclick="media()">Media</button>
+            
+            <button type="button" onclick="acimaMedia()">Acima da Media</button>
+
+            <button type="button" onclick="maiorNota()">Maior Nota</button>
+            
+         
+            <button type="button" onclick="posicao()">posicao</button>
+           
+          
+            
+            <br><br>
+            <output id="idMedia"></output>
+            <br><br>
+            <output id="idAcimaMedia"></output>
+            <br><br>
+            <output id="idMaiorNota"></output>
+            <br><br>
+            <output id="idPosicao"></output>
+            <br><br>
+           
+            
+           
+
+          </form>
+
+        </fieldset>
+        <script>
+
+            var num = []
+          
+            function cadastrar() {
+
+              num.push(Number(document.getElementById("idNota").value))
+              document.getElementById("idNota").value = ""}
+              console.log(num);
+              
+              //Media
+              function media() { 
+              let saidaMedia = document.getElementById("idMedia")
+              let media = 0
+              let somaMedia = 0
+
+                for (let index = 0; index < num.length; index++) {
+                somaMedia = somaMedia + num[index]
+
+                media = somaMedia / num.length
+                
+                }
+                saidaMedia.value = "Média da turma: " + media
+                
+              }
+
+                 //AcimadaMedia
+                function acimaMedia() {
+                let saidaAcimaMedia = document.getElementById("idAcimaMedia")
+                let taxaAcimaMedia = 1/num.length
+                let acima = 0
+                let media = []
+                let resultado = 0
+                
+
+                  num.forEach(element => {
+                  acima = acima + (element * taxaAcimaMedia)
+                  });
+
+                  num.forEach((element, index) => {
+                    if (element > acima ) {
+                        media.push(index)
+                  }
+                  });
+                 
+                    resultado = resultado + media.length
+
+                  saidaAcimaMedia.value = " " + resultado
+                 
+                }
+                
+
+                //MaiorNota
+                function maiorNota() {
+                  let saidaMaiorNota = document.getElementById("idMaiorNota") 
+                  let maiorNota = 0
+
+                  for (let index = 0; index < num.length; index++) {
+                    let element = num[index];
+                    if(element > maiorNota){
+                      maiorNota = element
+                    }
+                    
+                  }
+                    saidaMaiorNota.value = "Maior Nota: " + maiorNota
+
+                   
+                }
+
+
+                //Posicao
+
+                function posicao() {
+                  let saida = document.getElementById("idPosicao")
+  
+                let maxNota = num.reduce(function (acc, value) {
+                return Math.max(acc, value)
+                }, -Infinity)
+
+                
+                let indMaiorNota = num.map(function (elemento, index) {
+                if (elemento == maxNota) {
+                    return index
+                }
+                })
+                
+
+                indMaiorNota = indMaiorNota.filter(function(value) {
+                return value != undefined
+               })
+            
+                 saida.value = "Posição da Maior Nota: " + indMaiorNota
+
+              }
+  
+        </script>
+  
+      
+</body>
+</html>
+          

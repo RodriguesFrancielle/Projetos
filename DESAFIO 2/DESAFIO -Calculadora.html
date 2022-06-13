@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+            margin: 0;
+            padding: 0;
+
+        }
+        body {
+          margin: 2cm;
+          margin-right: 0%;
+          background-color:cadetblue;
+         
+          
+          
+        }
+        #idCalculadora{
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          margin-left: 0.8cm;
+          font-weight: bold;
+          font-size: 0.8cm;
+        }
+
+        
+        div {
+          border: 0px solid black;
+          margin: 0.20%;
+          
+        }
+        
+      
+        #idNumber{
+          display: flex;
+            width: 25%;
+            text-align: right;
+            height: 0.5cm;
+            
+        }
+
+        #idCol1{
+          display: flex;
+            width: 25%;
+            height: 5%;
+      
+        
+        }
+        #idApagar{
+          height: 1cm;
+          width: 10cm;
+          background-color:goldenrod
+        
+        }
+        #idSoma{
+          height: 1cm;
+          width: 10cm;
+          background-color: aquamarine;
+        }
+        #idSub{
+          height: 1cm;
+          width: 10cm;
+          background-color: aquamarine;
+        }
+        #idDiv{
+          height: 1cm;
+          width: 10cm;
+          background-color: aquamarine;
+        }
+        #idMult{
+          height: 1cm;
+          width: 10cm;
+          background-color: aquamarine;
+        }
+
+
+        #idCol2{
+          display: flex;
+            width: 25%;
+            height: 5%;
+            
+        }
+        #idSete{
+          height: 1cm;
+          width: 10cm;
+          background-color:azure;
+        }
+        #idOito{
+          height: 1cm;
+          width: 10cm;
+          background-color:azure;
+        }
+        #idNove{
+          height: 1cm;
+          width: 10cm;
+          background-color:azure;
+        }
+       
+
+        #idCol3{
+          display: flex;
+          width: 25%;
+            height: 5%;
+           
+        }
+        #idQuatro{
+          height: 1cm;
+          width: 10cm;
+          background-color:azure;
+        }
+        #idCinco{
+          height: 1cm;
+          width: 10cm;
+          background-color:azure;
+        }
+        #idSeis{
+          height: 1cm;
+          width: 10cm;
+          background-color:azure;
+        }
+       
+        #idCol4{
+          display: flex;
+            width: 25%;
+            height: 5%;
+           
+        }
+        #idUm{
+          height: 1cm;
+          width: 10cm;
+          background-color:azure;
+        }
+        #idDois{
+          height: 1cm;
+          width: 10cm;
+          background-color:azure;
+        }
+        #idTres{
+          height: 1cm;
+          width: 10cm;
+          background-color:azure;
+        }
+        #idCol5{
+          display: flex;
+            width: 25%;
+            height: 5%;
+            background-color:azure;
+        }
+        #idZero{
+          height: 1cm;
+          width: 10cm;
+          background-color:azure;
+        }
+        #idPonto{
+          height: 1cm;
+          width: 10cm;
+          background-color: aquamarine;
+        }
+        #idIgual{
+          height: 1cm;
+          width: 10cm;
+          background-color: aquamarine;
+        
+        }
+      
+  </style>
+</head>
+      <body>
+     
+       
+        <form action="">
+         
+          
+        <p id="idCalculadora">Calculadora</p>
+      
+          <input type="text" id="idNumber">
+       
+        <div id="idCol1">
+             <input type="button" id="idApagar" value =" C " onclick="apagar()">
+             <input type="button" id="idMult" value =" x " onclick="operacao('*')">
+             <input type="button" id="idDiv" value =" / " onclick="operacao('/')">
+        
+          </div>
+
+
+         <!---Coluna2-->
+         <div id="idCol2">
+
+          <input type="button" id="idSete" value =" 7 " onclick="operacao('7')">
+          <input type="button" id="idOito" value =" 8 " onclick="operacao('8')">
+          <input type="button" id="idNove" value =" 9 "onclick="operacao('9')" >
+          <input type="button" id="idSoma" value =" + " onclick="operacao('+')">
+         
+        </div>
+
+         <!---Coluna3-->
+         <div id="idCol3">
+
+          <input type="button" id="idQuatro" value =" 4 " onclick="operacao('4')">
+          <input type="button" id="idCinco" value =" 5 "  onclick="operacao('5')">
+          <input type="button" id="idSeis" value =" 6 " onclick="operacao('6')" >
+          <input type="button" id="idSub" value =" - " onclick="operacao('-')">
+        </div>
+
+        <!---Coluna4-->
+        <div id="idCol4">
+          <input type="button" id="idUm" value =" 1 " onclick="operacao('1')">
+          <input type="button" id="idDois" value =" 2 " onclick="operacao('2')">
+          <input type="button" id="idTres" value =" 3 " onclick="operacao('3')">
+          <input type="button" id="idPonto" value =" . " onclick="operacao('.')">
+          
+         
+        </div>
+
+        <!---Coluna5-->
+        <div id="idCol5">
+          <input type="button" id="idZero" value =" 0 " onclick="operacao('0')">
+          <input type="button" id="idIgual" value =" = " onclick="calcular()">
+        
+        </div>
+      </form>
+        <script>
+          var num = [];
+          
+          //calculo(numeros) trazer os numeros e as operações
+          function operacao(numeros) {
+            let numero = document.getElementById("idNumber")
+              num.push(numeros);
+              numero.value = (numeros);
+              } 
+
+           // calcular() p/ mostrar o resultado 
+           function calcular() {
+            let out = document.getElementById("idNumber")
+            let resultado = 0;
+            for (var index = 0; index < num.length; index++) {
+                  resultado += num[index]
+            }
+                //utilizado eval para calcular operação
+                  resultado = eval(resultado)
+                  out.value = (resultado)
+              
+          }
+
+          //apagar() parametro vazio p/ zerar a calculadora 
+          function apagar() {
+            let outApagar = document.getElementById("idNumber").value = ""
+                
+               for (var index = 0; index < num.length; index++) {
+                // utilizei splice para remover o array num e conseguir zerar.
+                    num = num.splice()
+                }
+                outApagar.value = ""
+            
+          }
+
+         
+            
+            
+        
+       
+
+        </script>
+
+      </body>
+</html>

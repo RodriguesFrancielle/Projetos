@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+      <style>
+        *{
+          padding: 3px;
+        }
+
+      
+        
+      </style>
+</head>
+    <body>
+        <form action="">
+
+        <div class="Text">
+        <label for="idTemperatura">Temperatura: </label>
+        <input type="number" id="idTemperatura">
+        </div>
+        
+        
+
+        <div>
+          <button type="button" id="idCadastrar">Cadastrar</button>
+         </div>
+
+         <div>
+          <button type="button" id="idMedia">Media</button>
+          <output id="idOutMedia"></output>
+        </div>
+
+
+         <div class="Text">
+          <label for="idDia">Informe a temperatura do Dia: </label>
+          <input type="number" id="idDia">
+          </div>
+          <div>
+            <button type="button" id="idAcimaouAbaixo">Temperatura do dia: </button>
+           </div>
+        <div>
+          <output id="idOutTempAcimaouAbaixo"></output>
+        </div>
+      </form>
+
+        <script>
+          //variaveis globais arrays e buttons
+          var temp = []
+          var btCadastrar = document.getElementById("idCadastrar")
+          var btMedia = document.getElementById("idMedia")
+          var btAcimaouAbaixo = document.getElementById("idAcimaouAbaixo")
+          var dias = 30
+          var outMedia = document.getElementById("idOutMedia")
+          var somaTemp = 0
+          var media = []
+
+          btCadastrar.onclick = function() {
+            
+            // cadastrar temperatura 
+            let temperatura = Number(document.getElementById("idTemperatura").value)
+              temp.push(temperatura)
+              document.getElementById("idTemperatura").value = ""
+              console.log(temp);
+            
+
+              if (temp.length < dias) {
+                somaTemp = somaTemp + temperatura
+              } 
+
+            //calcular a média da temperatura e saída
+          btMedia.onclick = function () {
+            let somaTemp = 0
+            
+               temp.forEach((element, index) => {
+                  somaTemp = somaTemp + element
+              });
+
+              media = somaTemp / temp.length
+              
+              outMedia.value = "Média das Temperaturas: " + media
+              return media
+            } 
+          }
+            
+          
+          
+              // cadastrar dia informado pelo usuario
+            btAcimaouAbaixo.onclick = function() {
+
+              let dia2 = Number(document.getElementById("idDia").value)
+                document.getElementById("idDia").value = ""
+              let outTempAcimaouAbaixo = document.getElementById("idOutTempAcimaouAbaixo")
+                
+
+
+                // saida p/ saber a se a temperatura é Acima ou abaixo da media
+                if (dia2 > media) {
+                  outTempAcimaouAbaixo.value = "Temperatura Acima da Média" 
+                }else{
+                  outTempAcimaouAbaixo.value = "Temperatura Abaixo da Média" }
+                  
+                } 
+                
+              
+          
+
+        </script>
+
+
+    </body>
+</html>

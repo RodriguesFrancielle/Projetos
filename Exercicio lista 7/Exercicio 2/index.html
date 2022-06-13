@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+    <style>
+        *{
+          padding: 2px;
+        }
+        .classButton{
+          margin: 5px;
+          
+        }
+
+    </style>
+      <body>
+        <form action="">
+            <div id="">
+              <label for="idNome">Nome:</label><br>
+              <input type="text" id="idNome" name="nmNome">
+            </div>
+
+            <div class="idForma">
+              <label for="idIdade">Idade:</label><br>
+              <input type="number" id="idIdade" name="nmNome"><br>
+            </div>
+
+            <div class="classButton">
+              <button type="button" onclick="cadastrar()">Cadastrar</button>
+              <button type="button" onclick="relatorio()">Relatorio</button>
+            </div>
+
+            <div>
+              <output id="idOut"></output>
+            </div>
+
+            <div>
+              <output id="idOut2"></output>
+            </div>
+      </form>
+        <script>
+            var nome1 = []
+            var idade2 = []
+            var out = document.getElementById("idOut")
+            var out2 = document.getElementById("idOut2")
+            out.value = "Nomes de menores: "
+            out2.value = "Idades de menores: "
+
+        
+            function cadastrar() {
+                  let nome = document.getElementById("idNome").value
+                    nome1.push(nome)
+                    console.log(nome1)
+                    document.getElementById("idNome").value = ""
+
+                    let idade = Number(document.getElementById("idIdade").value)
+                    idade2.push(idade)
+                    console.log(idade2)
+                    document.getElementById("idIdade").value = ""
+
+                   
+                  }
+          
+          
+          function relatorio() {
+
+          for (let index = 0; index < idade2.length; index++) {
+                
+                    
+                if (idade2[index] < 18) {
+                  out2.value = out2.value + idade2[index] + " ; "
+                  out.value = out.value  + nome1[index] + " ; "
+            
+                    }}
+            
+
+          }
+                  
+                      
+                  
+                  
+                
+                  
+                
+                
+
+        </script>
+        
+
+
+      </body>
+</html>

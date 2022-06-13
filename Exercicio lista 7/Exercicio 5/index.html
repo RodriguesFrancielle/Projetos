@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 2px;
+    }
+  </style>
+</head>
+    <body>
+      <form action="">
+        <div>
+            <label for="idNum"> Número: </label>
+            <input type="number" id="idNum">
+        </div>
+        <div>
+            <button type="button" id="idCadastrar"> Cadastrar</button>
+            <button type="button" id="idOrdemCres" > Ordem Crescente</button>    
+            <button type="button" id="idOrdemDecre" >Ordem Decrescente</button>
+               
+        </div>
+        <div>
+            <output id="idOut"></output>
+        </div>
+
+
+      </form>
+
+        <script>
+          //array
+          var num = []
+          //botoes 
+            var cadastrar = document.getElementById("idCadastrar")
+            var ordemCres = document.getElementById("idOrdemCres")
+            var ordemDecre = document.getElementById("idOrdemDecre")
+            var out = document.getElementById("idOut")
+          
+          // cadastro num  
+            cadastrar.onclick = function () {
+              let num2 = Number(document.getElementById("idNum").value) 
+              num.push(num2)
+              document.getElementById("idNum").value = ""
+              console.log(num);
+            } 
+            // cadastro ordemCrescente
+            ordemCres.onclick = function () {
+              let ordemCrescente = []
+
+                for (let index = 0; index < num.length; index++) {
+                  ordemCrescente.push(num[index])
+                    console.log(ordemCrescente)
+                    out.value = "Ordem Crescente: " + ordemCrescente
+                }
+
+            }
+            // cadastro ordemDecrescente
+            ordemDecre.onclick = function () {
+              let ordemDecrescente = []
+
+                for (let index = 0; index < num.length; index++) {
+                  ordemDecrescente.unshift(num[index])
+                    console.log(ordemDecrescente)
+                    out.value = "Ordem decrescente: " + ordemDecrescente
+                }
+
+            }
+              
+              
+            
+              
+            
+
+
+
+          
+
+
+
+
+        </script>
+    
+
+
+    
+    </body>
+</html>

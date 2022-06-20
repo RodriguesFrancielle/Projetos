@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Roboto+Condensed:wght@300&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+  <title>Precificação de Pizzas</title>
+      <style>
+              body {
+            color: #000000;
+            background-color: aliceblue;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+
+          }
+
+
+          legend h1 {
+            font-size: 40px;
+            font-weight: 700;
+          }
+
+          label {
+            font-size: 20px;
+            text-align: start;
+          }
+
+          .idNome {
+            font-size: 500px;
+          }
+
+          fieldset {
+            margin: 10px;
+            border-radius: 6px;
+          }
+
+          button {
+
+            border: 2px none;
+            font: inherit;
+            line-height: 1;
+            margin: 0.5em;
+            padding: 1em 2em;
+            border-radius: 8px;
+            background-color: #57ff59;
+            transition: 0.25s;
+            border-color: aliceblue;
+            cursor: pointer;
+          }
+
+          button:hover {
+            background-color: #43d645;
+          }
+
+      </style>
+</head>
+<body>
+  <div class="row">
+    <div class="col40">
+
+    </div>
+    <div class="col20">
+        <fieldset>
+            <legend>
+              <h1>Precificação de Pizzas</h1>
+              </legend>
+
+                    <!--- Nome das Pizzas-->
+                    <div id="idSelect" class="line margens">
+                      <label for="idNomes">Nome da pizza:</label>
+                      <select id="idNome">
+                        <option value="broto" name="nmNome">Broto</option>
+                        <option value="pequena"name="nmNome">Pequena	</option>
+                        <option value="media" name="nmNome">Média</option>
+                        <option value="grande" name="nmNome">Grande</option>
+                        <option value="gigante" name="nmNome">Gigante</option>
+                    </select>
+                  </div>
+
+                 <!--- Tamanho das Pizzas-->
+                 <div id="idSelect" class="line margens">
+                  <label for="idNomes">Tamanho da pizza:</label>
+                  <select id="idNome">
+                    <option value="15" name="nmTamanho">Tamanho: 15cm</option>
+                    <option value="25" name="nmTamanho">Tamanho: 25cm	</option>
+                    <option value="35" name="nmTamanho">Tamanho: 35cm</option>
+                    <option value="45" name="nmTamanho">Tamanho: 45cm</option>
+                    <option value="55" name="nmTamanho">Tamanho: 55cm</option>
+                </select>
+              </div>
+
+
+              <!--- Preços das Pizzas-->
+              <div id="idSelect" class="line margens">
+                <label for="idNomes">Preço da pizza:</label>
+                <select id="idNome">
+                  <option value="25.00" name="nmPreco">Preço: 25,00</option>
+                  <option value="35.00" name="nmPreco">Preço: 35,00</option>
+                  <option value="40.00" name="nmPreco">Preço: 40,00</option>
+                  <option value="60.00" name="nmPreco">Preço: 60,00</option>
+                  <option value="80.00" name="nmPreco">Preço: 80,00</option>
+              </select>
+            </div>
+
+            </div>
+            <div class="col100">
+                <button type="button" id="idBtCadastrar" class="margens" onclick="cadastrar()">Cadastrar</button>
+                <button type="button" id="idBtRelatorio" class="margens" onclick="relatorio()">Relatório</button>
+            </div>
+
+            <div>
+                <output id="idOut"></output>
+            </div>
+        </fieldset>
+    </div>
+    <div class="col40">
+
+    </div>
+</div>
+  
+      <script>
+            //Declarações das Variáveis globais:
+              var nomes = []
+              var tamanhos = []
+              var precos = []
+              var resultadoFinal = []
+              var custosBeneficio = []
+              var out = document.getElementById("idOut")
+              
+
+              function cadastrar() {
+                //Entrada das variaveis no formato select para um array
+                nomes.push(document.querySelector('option[name="nmNome"]:checked').value)
+                console.log(nomes);
+
+                tamanhos.push(document.querySelector('option[name="nmTamanho"]:checked').value)
+                console.log(tamanhos);
+                
+                precos.push(document.querySelector('option[name="nmPreco"]:checked').value)
+                console.log(precos);}
+
+                  
+              function relatorio() {
+
+                // Calculo dos tamanhos e dos preços
+                
+                  for (let index = 0; index < tamanhos.length; index++) {
+                      //calculo dos tamanhos das pizzas -  utilizando PI e mandando para um array
+                      if (tamanhos[index]) {
+                      let area =  3.14 * ((tamanhos[index]/ 2 )**2) /100
+                      resultadoFinal.push(area.toFixed(2))
+                      console.log("saber " + resultadoFinal);
+
+                        //calculo dos preços pegando a area e dividindo pelo preço
+                        for (let index = 0; index < precos.length; index++) {
+                        let custoBeneficio = (area /precos[index])  * 100
+                        custosBeneficio.push(custoBeneficio.toFixed(2))
+                        console.log("saber " + custosBeneficio);
+                        } 
+                      }
+                  }
+
+                  // colocando todos os arrays somente em um
+                  let teste = []
+
+                  for (let index = 0; index < nomes.length; index++) {
+                    teste.push( " ( " + nomes[index] + " ; " + tamanhos[index]+ "cm" + " ; " + precos[index] + " ; " + resultadoFinal[index]+ "R$p/cm²"+ " ; " + custosBeneficio[index]+ "%" + " ) ")
+
+                      // saída dos resultados
+                  for (let index = 0; index < nomes.length; index++) {
+                    const element = teste[index];
+                    out.value = teste
+                  }
+                  console.log(teste);
+
+                  }
+
+                  }
+      
+      </script>
+
+
+
+</body>
+</html>

@@ -7,10 +7,12 @@
   <title>Document</title>
 </head>
       <body>
+          <!--label e Input da Temperatura-->
           <label for="idTemperatura">Temperatura: </label><br>
           <input type="number" id="idTemperatura" name="idGraus">
           <br><br>
-          
+
+          <!--Radio das Temperaturas-->
           <input type="radio" name="nmtemp" id="idKelvin" checked>
           <label for="idKelvin">Kelvin</label>
           <input type="radio" name="nmtemp" id="idFah">
@@ -19,38 +21,59 @@
           <label for="idCelsius">Celsius</label>
           <br><br>
 
+
+          <!--Button temperatura-->
           <button type="button" onclick="verificar()">Verificar</button>
           <br><br>
+
+          <!--out Temperatura-->
           <output id="idOut"></output>
 
           <script>
               function verificar(Graus) {
-                let temperatura = parseFloat(document.getElementById("idTemperatura").value)
-                let out= document.getElementById("idOut")
-                let cont = " "
+                  //Entrada das variaveis
+                  let temperatura = Number(document.getElementById("idTemperatura").value)
+                  let Celsius = document.getElementById("idCelsius").checked
+                  let Fahrenheit = document.getElementById("idFah").checked
+                  let Kelvin = document.getElementById("idKelvin").checked
 
-               
+                  // saída do resultado
+                  let out= document.getElementById("idOut")
 
-               
-                if (document.getElementById('idFah').checked) {
-                  cont = (((9 * temperatura) + 160) / 5)
-                 
-                } 
-                if (document.getElementById('idKelvin').checked){
-                  cont = temperatura + 273
-                 
-                }
-                 else if (document.getElementById('idCelsius').checked) {
-                  cont = (temperatura - 32) * (5/9)
-                  
-                }
-                out.value = + cont
-              
-        
+                  //variaveis
+                  let converFah
+                  let converKelvin
+                  let converCelsius
 
-                
-              }
-            
+                    // calculo do Grau celsius
+                    if (Celsius) {
+                        converFah = (9 * temperatura + 160)/5
+                        converKelvin = (temperatura + 273.15)
+
+                        out.value = " Kelvin: " + converKelvin.toFixed(2) + " Fahrenheit: " + converFah.toFixed(2)
+                    }
+                        // calculo do Grau Fahrenheit
+                        if(Fahrenheit){
+                            converCelsius = (5 * temperatura - 160)/9
+                            converKelvin = (temperatura - 32) * 5/9 + 273.15
+
+                            out.value = " Kelvin: " + converKelvin.toFixed(2) + " Celsius: " + converCelsius.toFixed(2)
+                        }
+                          // calculo do Grau Kelvin
+                          if(Kelvin){
+                              converCelsius = (temperatura - 273.15)
+                              converFah = (temperatura - 273.15) * 9/5 + 32
+
+                              out.value = "Fahrenheit:" + converFah.toFixed(2) + " Celsius: " + converCelsius.toFixed(2)
+                          }      
+
+                            // Impossibilitar de realizar o calculo se não tiver algum dado no input - Temperatura
+                            if (temperatura == "" || temperatura == " ") {
+                                  out.value = "Digite uma Temperatura"
+                                  
+                                }      
+              } 
+
           </script>
           
       </body>

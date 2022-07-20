@@ -4,10 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Conversão de Moedas</title>
 </head>
       <body>
-            <!---Lista1-->
+              <!---Input Radio Button-->
+            <input type="number" id="idValorMoedaEntrada" name="nmValorMoedaEntrada" step="0.01" placeholder="Digite o valor"><br>
+
+            <!---Lista1 Radio Button-->
+            <label for="nmMoeda2">Selecione a Moeda de Entrada:</label><br>
             <input type="radio" name="nmMoeda1" id="idReal1" step="0.01" checked>
             <label for="idReal1">Real</label><br>
 
@@ -24,7 +28,8 @@
             <label for="idDolarC1">Dólar Canadense</label><br>
           
           <br><br><br><br>
-              <!---Lista2-->
+              <!---Lista2 Radio Button-->
+              <label for="nmMoeda2">Selecione a Moeda para conversão:</label><br>
               <input type="radio" name="nmMoeda2" id="idReal2" step="0.01" checked>
               <label for="idReal2">Real</label><br>
 
@@ -41,129 +46,137 @@
               <label for="idDolarC2">Dólar Canadense</label><br>
 
             <br><br>
+            <!--- Button-->
             <button type="button" onclick="converter()">Converter</button>
             <br><br>
 
             <output id="idOut"></output>
 
             <script>
+              
               function converter(Moedas) {
+                //entrada das moedas de entrada
+                let moedaEntrada = document.getElementById("idValorMoedaEntrada").value
+                // variaveis
+                let real
+                let libra
+                let euro
+                let dolar
+                let dolarcanadense
+
+                
+
+                //saida dos resultados
                 let out= document.getElementById("idOut")
-                let cont = " "
 
-               
 
-              //lista REAL
+              //lista REAL - Radio selecionados são realizado os calculos de acordo com as moedas selecionadas
                   if (document.getElementById('idReal1').checked && document.getElementById('idReal2').checked ) {
-                    cont = cont
-                    out.value = + cont
+                    real = moedaEntrada
+                    out.value = "Resultado Impossível pois as Moedas Selecionadas São idênticas"
                 }
                 if (document.getElementById('idReal1').checked && document.getElementById('idDolarA2').checked ) {
-                  cont = 0.21
-                  out.value = + cont
+                  real = moedaEntrada * 0.21
+                  out.value = "Resultado: " + " US$ " + real.toFixed(2)
                 }  if (document.getElementById('idReal1').checked && document.getElementById('idEuro2').checked ) {
-                  cont = 0.20
-                  out.value = + cont
+                  real = moedaEntrada * 0.20
+                  out.value = "Resultado: " + " € " + real.toFixed(2)
                 }
                 if (document.getElementById('idReal1').checked && document.getElementById('idLibra2').checked ) {
-                  cont = 0.17
-                  out.value = + cont
+                  real = moedaEntrada * 0.17
+                  out.value = "Resultado: " + " £ " + real.toFixed(2)
                 }
                  else if (document.getElementById('idReal1').checked && document.getElementById('idDolarC2').checked ) {
-                  cont = 0.27
-                  out.value = + cont
+                  real = moedaEntrada * 0.27
+                  out.value = "Resultado: " + " C$ " + real.toFixed(2)
                  } 
 
-                    //list Dolar Americano
+                    //list Dolar Americano -  Radio selecionados são realizado os calculos de acordo com as moedas selecionadas
                     if (document.getElementById('idDolarA1').checked && document.getElementById('idReal2').checked ) {
-                      cont = 4.73
-                      out.value = + cont
+                      dolar = moedaEntrada * 4.73
+                      out.value =  "Resultado: " + " R$ " + dolar.toFixed(2)
                     }  
                       if (document.getElementById('idDolarA1').checked && document.getElementById('idDolarA2').checked ) {
-                        cont = cont
-                        out.value = + cont
+                        dolar = moedaEntrada
+                        out.value = "Resultado Impossível pois as Moedas Selecionadas São idênticas"
                     } 
                       if (document.getElementById('idDolarA1').checked && document.getElementById('idEuro2').checked ) {
-                        cont = 0.93
-                        out.value = + cont
+                        dolar = moedaEntrada * 0.93
+                        out.value = "Resultado: " + " € " + dolar.toFixed(2)
                     }
                       if (document.getElementById('idDolarA1').checked && document.getElementById('idLibra2').checked ) {
-                        cont = 0.79
-                        out.value = + cont
+                        dolar = moedaEntrada * 0.79
+                        out.value = "Resultado: " + " £ " + dolar.toFixed(2)
                     }
                       else if (document.getElementById('idDolarA1').checked && document.getElementById('idDolarC2').checked ) {
-                        cont = 1.27
-                        out.value = + cont
+                        dolar = moedaEntrada * 1.27
+                        out.value = "Resultado: " + " C$ " + dolar.toFixed(2)
                     } 
 
-                      //list Euro
+                      //list Euro -  Radio selecionados são realizado os calculos de acordo com as moedas selecionadas
                         if (document.getElementById('idEuro1').checked && document.getElementById('idReal2').checked ) {
-                          cont = 5.08
-                          out.value = + cont
+                          euro = moedaEntrada * 5.08
+                          out.value = "Resultado: " + " R$ " + euro.toFixed(2)
                       }  
                         if (document.getElementById('idEuro1').checked && document.getElementById('idDolarA2').checked ) {
-                          cont = 1.07
-                          out.value = + cont
+                          euro = moedaEntrada * 1.07
+                          out.value = "Resultado: " + " US$ " + euro.toFixed(2)
                       }  
                         if (document.getElementById('idEuro1').checked && document.getElementById('idEuro2').checked ) {
-                          cont = cont
-                          out.value = + cont
+                          euro = moedaEntrada 
+                          out.value = "Resultado Impossível pois as Moedas Selecionadas São idênticas"
                       }
                         if (document.getElementById('idEuro1').checked && document.getElementById('idLibra2').checked ) {
-                          cont = 0.85
-                          out.value = + cont
+                          euro = moedaEntrada * 0.85
+                          out.value = "Resultado: " + " £ " + euro.toFixed(2)
                       }
                         else if (document.getElementById('idEuro1').checked && document.getElementById('idDolarC2').checked ) {
-                          cont = 1.37
-                          out.value = + cont
+                          euro = moedaEntrada * 1.37
+                          out.value = "Resultado: " + " C$ " + euro.toFixed(2)
                       } 
-                          //list Libra Esterlinha
+                          //list Libra Esterlinha -  Radio selecionados são realizado os calculos de acordo com as moedas selecionadas
                           if (document.getElementById('idLibra1').checked && document.getElementById('idReal2').checked ) {
-                              cont = 5.97
-                              out.value = + cont
+                              libra = moedaEntrada * 5.97
+                              out.value = "Resultado: " + " R$ " + libra.toFixed(2)
                           }  
                             if (document.getElementById('idLibra1').checked && document.getElementById('idDolarA2').checked ) {
-                              cont = 1.26
-                              out.value = + cont
+                              libra = moedaEntrada * 1.26
+                              out.value = "Resultado: " + " US$ " + libra.toFixed(2)
                           } 
                             if (document.getElementById('idLibra1').checked && document.getElementById('idLibra2').checked ) {
-                              cont = cont
-                              out.value = + cont
+                              libra = moedaEntrada 
+                              out.value = "Resultado Impossível pois as Moedas Selecionadas São idênticas"
                           }
                           
                             if (document.getElementById('idLibra1').checked && document.getElementById('idEuro2').checked ) {
-                              cont = 1.18
-                              out.value = + cont
+                              libra = moedaEntrada * 1.18
+                              out.value = "Resultado: " + " € " + libra.toFixed(2)
                           }
                             else if (document.getElementById('idLibra1').checked && document.getElementById('idDolarC2').checked ) {
-                              cont = 1.61
-                              out.value = + cont
+                              libra = moedaEntrada * 1.61
+                              out.value = "Resultado: " + " C$ " + libra.toFixed(2)
                           } 
-                            //list Dolar Canadense
+                            //list Dolar Canadense -  Radio selecionados são realizado os calculos de acordo com as moedas selecionadas
                               if (document.getElementById('idDolarC1').checked && document.getElementById('idReal2').checked ) {
-                                cont = 3.72
-                                out.value = + cont
+                                dolarcanadense = moedaEntrada * 3.72
+                                out.value = "Resultado: " + " R$ " + dolarcanadense.toFixed(2)
                             }  
                               if (document.getElementById('idDolarC1').checked && document.getElementById('idDolarA2').checked ) {
-                                cont = 0.79
-                                out.value = + cont
+                                dolarcanadense = moedaEntrada * 0.79
+                                out.value = "Resultado: " + " US$ " + dolarcanadense.toFixed(2)
                             }
                               if (document.getElementById('idDolarC1').checked && document.getElementById('idEuro2').checked ) {
-                                cont = 0.73
-                                out.value = + cont
+                                dolarcanadense = moedaEntrada * 0.73
+                                out.value = "Resultado: " + " € " + dolarcanadense.toFixed(2)
                             }
                               else if (document.getElementById('idDolarC1').checked && document.getElementById('idLibra2').checked ) {
-                                cont = 0.62
-                                out.value = + cont
+                                dolarcanadense = moedaEntrada * 0.62
+                                out.value = "Resultado: " + " £ " + dolarcanadense.toFixed(2)
                             } 
                               else if (document.getElementById('idDolarC1').checked && document.getElementById('idDolarC2').checked ) {
-                                cont = cont
-                                out.value = + cont
+                                dolarcanadense = moedaEntrada 
+                                out.value = "Resultado Impossível pois as Moedas Selecionadas São idênticas"
                             } 
-                 
-
-                 
-                
               }
 
 
